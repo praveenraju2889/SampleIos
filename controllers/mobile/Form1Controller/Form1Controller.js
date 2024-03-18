@@ -38,16 +38,17 @@ define({
           
           //NSLog(@"Base64 Encoded Document: %@", data);
           // Get the filename from the document URL
-          // NSString *filename = [url lastPathComponent];
+           //NSString *filename = [url lastPathComponent];
 
-          //var NSURL = objc.import("NSURL");
+          var NSURL = objc.import("NSURL");
            //var url = url;// an erroneous URL to generate an error
           //var error = {}; // a place holder object for storing the error info.
          // var content = NSString.stringWithContentsOfURLEncodingError(url, NSASCIIStringEncoding, error);
 
+         
           //NSString.stringWithContentsOfURLUsedEncodingError(url, enc, error)
-          //var filename = url
-          //kony.print("Selected Document Filename: "+JSON.stringify(url));
+          var filename = url.lastPathComponent;
+          kony.print("Selected Document Filename: "+filename);
           // Now you have the filename of the selected document
           // NSLog(@"Selected Document Filename: %@", filename);
         }, []);        
