@@ -2,11 +2,11 @@ define({
 
   //Type your controller code here 
   onNavigate: function(){
-    //this.initCNContactPickerDelegate();
-    this.view.btnDoc.onClick = this.onFileSelected;
-    this.initUIDocumentPickerDelegate();
-    //this.view.btn2.onClick = this.openContact;
+    this.initCNContactPickerDelegate();
     this.initUIImagePickerControllerDelegate();
+    this.initUIDocumentPickerDelegate();
+    this.view.btnDoc.onClick = this.onFileSelected;   
+    this.view.btn2.onClick = this.openContact; 
     this.view.btn3.onClick = this.openGallery;
   },
   initUIDocumentPickerDelegate:function(){
@@ -109,7 +109,7 @@ define({
   },
   initCNContactPickerDelegate:function(){
 
-    this.ViewController = objc.newClass('ViewController'+Math.random(), 'UIViewController', ['CNContactPickerDelegate'], {
+    this.ViewController2 = objc.newClass('ViewController'+Math.random(), 'UIViewController', ['CNContactPickerDelegate'], {
       contactPickerDidSelectContact: function(controller, contact) {
         alert("Contact Selected...."+ contact.givenName);
         kony.runOnMainThread(function() {
@@ -152,7 +152,7 @@ define({
     var CNContactPickerViewController = objc.import("CNContactPickerViewController");
 
 
-    var myObj = this.ViewController.alloc().jsinit();
+    var myObj = this.ViewController2.alloc().jsinit();
 
     var cVC = CNContactPickerViewController.alloc().jsinit();
 
@@ -180,7 +180,7 @@ define({
   },
   initUIImagePickerControllerDelegate:function(){
 
-    this.ViewController = objc.newClass('ViewController'+Math.random(), 'UIViewController', ['UIImagePickerControllerDelegate'], {
+    this.ViewController1 = objc.newClass('ViewController'+Math.random(), 'UIViewController', ['UIImagePickerControllerDelegate'], {
 
       imagePickerControllerDidFinishPickingMediaWithInfo: function(controller, info) {
          kony.print("info Document: "+JSON.stringify(info));
@@ -240,7 +240,7 @@ define({
     var UIImagePickerController = objc.import("UIImagePickerController");
 
 
-    var myObj = this.ViewController.alloc().jsinit();
+    var myObj = this.ViewController1.alloc().jsinit();
 
     var cVC = UIImagePickerController.alloc().jsinit();
 
