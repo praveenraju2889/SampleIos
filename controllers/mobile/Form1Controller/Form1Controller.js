@@ -2,12 +2,12 @@ define({
 
   //Type your controller code here 
   onNavigate: function(){
-    //this.select2();
+    //this.initCNContactPickerDelegate();
     this.view.btnDoc.onClick = this.onFileSelected;
     this.initUIDocumentPickerDelegate();
-    //this.view.btn2.onClick = this.select;
-    //this.select5();
-    //this.view.btn3.onClick = this.openGallery;
+    //this.view.btn2.onClick = this.openContact;
+    this.initUIImagePickerControllerDelegate();
+    this.view.btn3.onClick = this.openGallery;
   },
   initUIDocumentPickerDelegate:function(){
 
@@ -26,6 +26,7 @@ define({
           //var error = 
           //NSData *data = [NSData dataWithContentsOfURL:url options:NSDataReadingMappedIfSafe error:&error];
           var data = NSData.dataWithContentsOfURLOptionsError(url, NSDataReadingMappedIfSafe, {}).base64EncodedStringWithOptions(0);
+          //NSData.alloc().i
 
           kony.print("Base64 Encoded Document: "+JSON.stringify(data));
           //         if (error) {
@@ -35,17 +36,17 @@ define({
           //NSString *base64String = [data base64EncodedStringWithOptions:0];
 
           // Now you have the Base64 encoded string of the document
-          
+
           //NSLog(@"Base64 Encoded Document: %@", data);
           // Get the filename from the document URL
-           //NSString *filename = [url lastPathComponent];
+          //NSString *filename = [url lastPathComponent];
 
           var NSURL = objc.import("NSURL");
-           //var url = url;// an erroneous URL to generate an error
+          //var url = url;// an erroneous URL to generate an error
           //var error = {}; // a place holder object for storing the error info.
-         // var content = NSString.stringWithContentsOfURLEncodingError(url, NSASCIIStringEncoding, error);
+          // var content = NSString.stringWithContentsOfURLEncodingError(url, NSASCIIStringEncoding, error);
 
-         
+
           //NSString.stringWithContentsOfURLUsedEncodingError(url, enc, error)
           var filename = url.lastPathComponent;
           kony.print("Selected Document Filename: "+filename);
@@ -106,7 +107,7 @@ define({
     }
 
   },
-  select2:function(){
+  initCNContactPickerDelegate:function(){
 
     this.ViewController = objc.newClass('ViewController'+Math.random(), 'UIViewController', ['CNContactPickerDelegate'], {
       contactPickerDidSelectContact: function(controller, contact) {
@@ -147,7 +148,7 @@ define({
     });
 
   },
-  select:function(){
+  openContact:function(){
     var CNContactPickerViewController = objc.import("CNContactPickerViewController");
 
 
@@ -177,17 +178,60 @@ define({
     //         }
     //       });
   },
-  select5:function(){
+  initUIImagePickerControllerDelegate:function(){
 
     this.ViewController = objc.newClass('ViewController'+Math.random(), 'UIViewController', ['UIImagePickerControllerDelegate'], {
 
       imagePickerControllerDidFinishPickingMediaWithInfo: function(controller, info) {
-        alert("Contact Selected...."+ info);
+         kony.print("info Document: "+JSON.stringify(info));
         kony.runOnMainThread(function() {
+          var UIImage = objc.import("UIImage");
+          //var UIImageJPEGRepresentation = objc.import("UIImageJPEGRepresentation");
 
+          //var UIImagePickerControllerOriginalImage = objc.import("UIImagePickerControllerOriginalImage");
+          
+          /**********************
+          IOS - Objective C code for reference
+          //UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+          //NSData *imgData = UIImageJPEGRepresentation(image, 1.0);
+          //NSString *base64String = [imgData base64EncodedStringWithOptions:0];
+          //NSLog(@"Image Data: %@", base64String);
+
+          //NSURL *imagePath = [info objectForKey:@"UIImagePickerControllerReferenceURL"];
+          //PHFetchResult *result = [PHAsset fetchAssetsWithALAssetURLs:@[imagePath] options:nil];
+          //NSString *filename = [[result firstObject] filename];
+          //NSLog(@"[filename ] %@", filename );
+          End of objective c code*/
+          
+          /*********************************
+          ######Java Script code need proper syntax#############
+          //Uncomment this code and ask kony for proper syntax
+          var image = info.objectForKey(UIImagePickerControllerOriginalImage);
+          var NSData = objc.import("NSData");
+
+          var imgData = UIImageJPEGRepresentation(image,1.0);
+          var base64String = imgData.base64EncodedStringWithOptions(0);
+
+          kony.print("Base64 Encoded Document: "+JSON.stringify(base64String));
+          var imagePath = info.objectForKey("UIImagePickerControllerReferenceURL");
+          var PHFetchResult = objc.import("PHFetchResult");
+          var PHAsset = objc.import("PHAsset");
+          var result = PHAsset.fetchAssetsWithALAssetURLsOptions([imagePath], undefined);
+          var filename = result.lastObject;
+          kony.print("filename: "+filename);
+          */
+          
+          
+          
+          //Dismiss gallery code added
+          var UIApplication = objc.import("UIApplication");
+          UIApplication.sharedApplication().keyWindow.rootViewController.dismissViewControllerAnimatedCompletion(true, null);
         }, []);                               
       },
-      contactPickerDidCancel: function(controller) {
+      imagePickerControllerDidCancel: function(controller) {
+        //To dismiss the new UI viewController
+        var UIApplication = objc.import("UIApplication");
+        UIApplication.sharedApplication().keyWindow.rootViewController.dismissViewControllerAnimatedCompletion(true, null);
       }
     });
 

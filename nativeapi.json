@@ -58,6 +58,30 @@
                 }
             },
             "14.0": {
+                "Contacts-iOS-14.0": {
+                    "apiKey": "Contacts-iOS-14.0",
+                    "title": "Contacts",
+                    "platform": "iOS",
+                    "os": "14.0",
+                    "url": "/visualizer/nativeframeworks/3.0/ios/1.0/Contacts-iOS-14.0.zip",
+                    "checksum": "ea3ae28b2670272891f8caad0749f3f842fc1139",
+                    "filename": "Contacts-iOS-14.0.zip",
+                    "isDefault": false,
+                    "nfiversion": "3.0",
+                    "enable": true
+                },
+                "ContactsUI-iOS-14.0": {
+                    "apiKey": "ContactsUI-iOS-14.0",
+                    "title": "ContactsUI",
+                    "platform": "iOS",
+                    "os": "14.0",
+                    "url": "/visualizer/nativeframeworks/3.0/ios/1.0/ContactsUI-iOS-14.0.zip",
+                    "checksum": "83a5926eee401b84ee6b1ff09d620c5333ccf608",
+                    "filename": "ContactsUI-iOS-14.0.zip",
+                    "isDefault": false,
+                    "nfiversion": "3.0",
+                    "enable": true
+                },
                 "Foundation-iOS-14.0": {
                     "apiKey": "Foundation-iOS-14.0",
                     "title": "Foundation",
@@ -82,26 +106,14 @@
                     "nfiversion": "3.0",
                     "enable": true
                 },
-                "Contacts-iOS-14.0": {
-                    "apiKey": "Contacts-iOS-14.0",
-                    "title": "Contacts",
+                "Photos-iOS-14.0": {
+                    "apiKey": "Photos-iOS-14.0",
+                    "title": "Photos",
                     "platform": "iOS",
                     "os": "14.0",
-                    "url": "/visualizer/nativeframeworks/3.0/ios/1.0/Contacts-iOS-14.0.zip",
-                    "checksum": "ea3ae28b2670272891f8caad0749f3f842fc1139",
-                    "filename": "Contacts-iOS-14.0.zip",
-                    "isDefault": false,
-                    "nfiversion": "3.0",
-                    "enable": true
-                },
-                "ContactsUI-iOS-14.0": {
-                    "apiKey": "ContactsUI-iOS-14.0",
-                    "title": "ContactsUI",
-                    "platform": "iOS",
-                    "os": "14.0",
-                    "url": "/visualizer/nativeframeworks/3.0/ios/1.0/ContactsUI-iOS-14.0.zip",
-                    "checksum": "83a5926eee401b84ee6b1ff09d620c5333ccf608",
-                    "filename": "ContactsUI-iOS-14.0.zip",
+                    "url": "/visualizer/nativeframeworks/3.0/ios/1.0/Photos-iOS-14.0.zip",
+                    "checksum": "28b7543204cd99f1141383876a761ed2d157aabf",
+                    "filename": "Photos-iOS-14.0.zip",
                     "isDefault": false,
                     "nfiversion": "3.0",
                     "enable": true
